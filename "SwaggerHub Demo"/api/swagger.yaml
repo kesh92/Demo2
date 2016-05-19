@@ -1,0 +1,40 @@
+---
+swagger: "2.0"
+info:
+  description: "This demo is for the doc team"
+  version: "1.0.0"
+  title: "A demo API"
+host: "www.example.io"
+basePath: "/keshav"
+schemes:
+- "https"
+paths:
+  /DocTeam:
+    get:
+      summary: "Gives a list"
+      description: "Gives back the entire details of the Doc team"
+      operationId: "docTeamGET"
+      parameters:
+      - name: "Country"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "OK"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/inline_response_200"
+      x-swagger-router-controller: "Default"
+definitions:
+  inline_response_200:
+    required:
+    - "FirstName"
+    properties:
+      FirstName:
+        type: "string"
+      Gender:
+        type: "string"
+      Age:
+        type: "integer"
