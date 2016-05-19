@@ -1,0 +1,38 @@
+---
+swagger: "2.0"
+info:
+  description: "This is for the Doc team"
+  version: "2.0.0"
+  title: "This is a basic demo"
+host: "www.example.com"
+basePath: "/keshav"
+schemes:
+- "https"
+paths:
+  /docTeam:
+    get:
+      summary: "This is a top level demo"
+      description: "This method should give us the list of doc team members"
+      operationId: "docTeamGET"
+      parameters:
+      - name: "Country"
+        in: "query"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "It gives the details of the doc team"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/inline_response_200"
+      x-swagger-router-controller: "Default"
+definitions:
+  inline_response_200:
+    properties:
+      LastName:
+        type: "string"
+      Gender:
+        type: "string"
+      Age:
+        type: "integer"
